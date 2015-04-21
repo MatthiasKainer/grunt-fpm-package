@@ -1,0 +1,14 @@
+{
+    "validate": {
+        "syntax": {
+            "task": "jshint",
+            "package": "grunt-contrib-jshint"
+        }
+    },
+    "test": {
+        "unit" : {
+            "task": "mocha",
+            "package":  "grunt-mocha"
+        }
+    }
+}
