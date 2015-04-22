@@ -10,18 +10,18 @@
 
 Add the following configuration to your build.json: 
 ```json
-grunt.initConfig({
+{
   "fpm": {
 	"task": "fpm",
 	"package": "grunt-fpm-package",
     "options": {
-      // Task-specific options go here.
+      "desc": "Task-specific options go here."
     },
     "your_target": {
-      // Target-specific file lists and/or options go here.
-    },
+      "desc": "Target-specific file lists and/or options go here."
+    }
   },
-});
+};
 ```
 
 ### Usage with Grunt

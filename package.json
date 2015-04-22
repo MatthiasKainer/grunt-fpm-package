@@ -1,7 +1,7 @@
 {
   "name": "grunt-fpm-package",
   "description": "Triggers a fpm run",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/MatthiasKainer/grunt-fpm-package",
   "author": {
     "name": "mkainer",
