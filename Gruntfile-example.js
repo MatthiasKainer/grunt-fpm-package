@@ -18,7 +18,8 @@ module.exports = function (grunt) {
             "options": {
                 "s" : "dir",
                 "t" : "deb",
-                "version" : "1.0"
+                "version" : "1.0",
+                "d" : ["hello", "world"]
             },
             "mypackage" : {
                 "src": ["la/**", "le/**", "lu/**"]

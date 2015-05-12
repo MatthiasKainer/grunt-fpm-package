@@ -21,9 +21,13 @@ module.exports = function (grunt, child_process) {
         var exec = "fpm";
         
         Object.keys(options).forEach(function (option) {
-            exec += " " 
-                + (option.length == 1 ? "-" + option + " " : "--" + option + "=")
-                + (options[option]);
+            var argument = " " 
+                + (option.length == 1 ? "-" + option + " " : "--" + option + "=");
+                
+            var value = [].concat(options[option]);            
+            argument = argument + value.join(argument);
+            
+             exec += argument;            
         });
         
         this.files.forEach(function (f) {
