@@ -23,8 +23,10 @@ module.exports = function (grunt, child_process) {
         Object.keys(options).forEach(function (option) {
             var argument = " " 
                 + (option.length == 1 ? "-" + option + " " : "--" + option + "=");
-                
-            var value = [].concat(options[option]);            
+
+            var optionValue = (typeof options[option] == "string" ? '"' + options[option] + '"' : options[option]);
+            var value = [].concat(optionValue);
+
             argument = argument + value.join(argument);
             
              exec += argument;            
