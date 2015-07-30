@@ -21,17 +21,19 @@ module.exports = function (grunt, child_process) {
         var exec = "fpm";
 
         Object.keys(options).forEach(function (option) {
-            // Here are parameters meant without a value like --force
-            if (typeof options[option] == "boolean") {
-                var paramPrefix = (option.length == 1) ? "-" : "--";
-                argument = options[option] == true ? " "+paramPrefix+option : "";
-            } else {
-                var argument = " " + (option.length == 1 ? "-" + option + " " : "--" + option + "=");
-                var optionValue = (typeof options[option] == "string" ? '"' + options[option] + '"' : options[option]);
-                var value = [].concat(optionValue);
-                argument = argument + value.join(argument);
+            if(options[option].length > 0) {
+                // Here are parameters meant without a value like --force
+                if (typeof options[option] == "boolean") {
+                    var paramPrefix = (option.length == 1) ? "-" : "--";
+                    argument = options[option] == true ? " " + paramPrefix + option : "";
+                } else {
+                    var argument = " " + (option.length == 1 ? "-" + option + " " : "--" + option + "=");
+                    var optionValue = (typeof options[option] == "string" ? '"' + options[option] + '"' : options[option]);
+                    var value = [].concat(optionValue);
+                    argument = argument + value.join(argument);
+                }
+                exec += argument;
             }
-            exec += argument;
         });
         
         this.files.forEach(function (f) {
